@@ -95,7 +95,120 @@
       </div>
     </section>
 
-    <section class="visit-section" id="location">
+    <section class="visit-section" id="location"><script>
+  (function () {
+    // 1. 이미지에 나온 태그 selector(#location 또는 .visit-section) 타겟팅
+    const targetSection = document.querySelector('#location') || document.querySelector('.visit-section');
+    if (!targetSection) return;
+
+    // 2. targetSection의 CSS position 확인 및 설정 (Canvas 배치의 기준점)
+    const computedStyle = window.getComputedStyle(targetSection);
+    if (computedStyle.position === 'static') {
+      targetSection.style.position = 'relative';
+    }
+    targetSection.style.overflow = 'hidden'; // 화면 밖으로 꽃잎이 넘치지 않도록 방지
+
+    // 3. 캔버스 생성 및 스타일 지정
+    const canvas = document.createElement('canvas');
+    canvas.id = 'cherry-blossom-canvas';
+    canvas.style.position = 'absolute';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.pointerEvents = 'none'; // 클릭 이벤트 통과
+    canvas.style.zIndex = '1';           // 배경 레이어 설정
+
+    // 자식 요소들이 캔버스보다 위에 오도록 z-index 부여
+    Array.from(targetSection.children).forEach(child => {
+      if (window.getComputedStyle(child).position === 'static') {
+        child.style.position = 'relative';
+      }
+      child.style.zIndex = '2';
+    });
+
+    // section 최상단 배경으로 canvas 추가
+    targetSection.insertBefore(canvas, targetSection.firstChild);
+
+    const ctx = canvas.getContext('2d');
+    let width = (canvas.width = targetSection.clientWidth);
+    let height = (canvas.height = targetSection.clientHeight);
+
+    // ResizeObserver로 섹션 크기 변화 감지
+    const resizeObserver = new ResizeObserver(() => {
+      width = canvas.width = targetSection.clientWidth;
+      height = canvas.height = targetSection.clientHeight;
+    });
+    resizeObserver.observe(targetSection);
+
+    // 4. 벚꽃 애니메이션 로직
+    const petalCount = 30;
+    const petals = [];
+
+    class Petal {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * -height;
+        this.size = Math.random() * 6 + 6;
+        this.speedY = Math.random() * 1.0 + 0.6;
+        this.speedX = Math.random() * 0.6 - 0.3;
+        this.rotation = Math.random() * 360;
+        this.rotationSpeed = Math.random() * 1.5 - 0.75;
+        this.opacity = Math.random() * 0.4 + 0.4;
+      }
+
+      update() {
+        this.y += this.speedY;
+        this.x += Math.sin(this.y * 0.01) + this.speedX;
+        this.rotation += this.rotationSpeed;
+
+        if (this.y > height + 20) {
+          this.reset();
+          this.y = -20;
+        }
+      }
+
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate((this.rotation * Math.PI) / 180);
+        ctx.globalAlpha = this.opacity;
+
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.bezierCurveTo(-this.size / 2, -this.size / 2, -this.size, this.size / 3, 0, this.size);
+        ctx.bezierCurveTo(this.size, this.size / 3, this.size / 2, -this.size / 2, 0, 0);
+
+        const gradient = ctx.createLinearGradient(0, 0, 0, this.size);
+        gradient.addColorStop(0, '#ffc0cb');
+        gradient.addColorStop(1, '#ff8da1');
+
+        ctx.fillStyle = gradient;
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < petalCount; i++) {
+      petals.push(new Petal());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      petals.forEach((petal) => {
+        petal.update();
+        petal.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  })();
+</script>
       <div class="section-wrap visit-grid">
         <div><div class="section-label">03 / VISIT US</div><h2>벚꽃이 기다리는 곳,<br><em>석촌호수</em></h2><p>서울특별시 송파구 잠실로 148<br>석촌호수 동호 및 서호 일대</p><div class="visit-meta"><span>지하철 2·8호선 잠실역</span><span>도보 약 5분</span></div><a class="text-link" href="https://map.naver.com/v5/search/석촌호수" target="_blank" rel="noopener">지도에서 위치 확인하기 ↗</a></div>
         <div class="lake-art" aria-label="석촌호수 벚꽃 풍경 이미지"><div class="lake-sun"></div><div class="lake-line"></div><div class="lake-label">SEE YOU<br>IN SPRING</div><div class="petal p1">✿</div><div class="petal p2">✿</div><div class="petal p3">✿</div></div>
