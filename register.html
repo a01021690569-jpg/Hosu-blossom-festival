@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사전등록 | 호수벚꽃축제</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body{background:#f5f9f8}.register-wrap{width:min(650px,90%);margin:65px auto 90px;background:#fff;padding:45px 50px;box-shadow:0 15px 50px #49606012}.register-top{text-align:center;margin-bottom:32px}.register-top .brand-mark{font-size:32px}.register-top h1{font:400 34px 'Gowun Batang',serif;color:#bd718d;margin:8px 0}.register-top p{font-size:12px;color:#829193}.form-row{margin:19px 0}.form-row label{display:block;font-size:12px;font-weight:500;margin-bottom:7px}.form-row input,.form-row select{width:100%;padding:13px;border:1px solid #dfe7e6;border-radius:3px;font:13px 'Noto Sans KR',sans-serif;background:#fff;color:#53666a}.form-row input:focus,.form-row select:focus{outline:1px solid #d68ca5;border-color:#d68ca5}.required{color:#d17d99}.agree{font-size:11px;color:#829193;display:flex;gap:8px;align-items:center;margin:22px 0}.submit-btn{width:100%;justify-content:center}.back-link{display:block;text-align:center;margin-top:20px;font-size:12px;color:#8c9b9c}.success{display:none;text-align:center;padding:35px 10px}.success h2{font-size:28px;color:#bd718d}.success p{font-size:13px;color:#7d8e90}@media(max-width:600px){.register-wrap{padding:32px 22px;margin:35px auto 60px}.register-top h1{font-size:28px}}
+  </style>
+</head>
+<body>
+  <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">✿</span><span>호수벚꽃축제</span></a><a class="text-link" href="index.html">← 축제 페이지로</a></header>
+  <main class="register-wrap">
+    <div id="registerFormArea">
+      <div class="register-top"><span class="brand-mark">✿</span><h1>봄날의 초대</h1><p>호수벚꽃축제 사전등록 페이지입니다.</p></div>
+      <form id="registrationForm">
+        <div class="form-row"><label for="name">이름 <span class="required">*</span></label><input id="name" name="name" required placeholder="이름을 입력해 주세요"></div>
+        <div class="form-row"><label for="phone">연락처 <span class="required">*</span></label><input id="phone" name="phone" type="tel" required placeholder="010-0000-0000"></div>
+        <div class="form-row"><label for="email">이메일</label><input id="email" name="email" type="email" placeholder="example@email.com"></div>
+        <div class="form-row"><label for="count">참가 인원</label><select id="count" name="count"><option>1명</option><option>2명</option><option>3명</option><option>4명</option><option>5명 이상</option></select></div>
+        <div class="form-row"><label for="program">관심 프로그램</label><select id="program" name="program"><option>자유 관람</option><option>봄날의 버스킹</option><option>플라워 마켓</option><option>봄빛 체험공방</option></select></div>
+        <label class="agree"><input type="checkbox" required> 개인정보 수집 및 이용에 동의합니다. (필수)</label>
+        <button class="button button-primary submit-btn" type="submit">사전등록 신청하기 <span>↗</span></button>
+      </form>
+      <a class="back-link" href="index.html">축제 메인으로 돌아가기</a>
+    </div>
+    <div class="success" id="successMessage"><div class="brand-mark">✿</div><h2>사전등록이 완료되었습니다!</h2><p>호수벚꽃축제에서 만나요.<br>본 페이지는 포트폴리오용 데모이며 신청 정보는 저장·전송되지 않습니다.</p><a class="button button-primary" href="index.html">메인 페이지로 돌아가기</a></div>
+  </main>
+  <script>
+    // 데모 신청 폼: 서버 전송 없이 완료 화면만 보여줍니다.
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      if (!this.reportValidity()) return;
+      document.getElementById('registerFormArea').style.display = 'none';
+      document.getElementById('successMessage').style.display = 'block';
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+  </script>
+</body>
+</html>

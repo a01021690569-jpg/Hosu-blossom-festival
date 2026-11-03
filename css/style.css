@@ -1,0 +1,66 @@
+/* 기본 설정 */
+:root{--ink:#354b50;--muted:#71878a;--pink:#d982a0;--pale:#f9edf0;--blue:#dff1f5;--cream:#fff8ee;--line:#e5e9e7}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:400;line-height:1.7}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.site-header{height:76px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;background:#fff;position:sticky;top:0;z-index:20}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;letter-spacing:-.04em}
+.brand-mark{font-size:25px;color:#d985a2}
+.main-nav{display:flex;align-items:center;gap:34px;font-size:13px;color:#63777a}
+.main-nav a:hover{color:#d47d9a}
+.main-nav .nav-apply{padding:10px 21px;border-radius:30px;background:#e9a4b8;color:white}
+.menu-toggle{display:none;border:0;background:none;font-size:24px;color:var(--ink)}
+.hero{min-height:690px;height:min(790px,calc(100vh - 76px));position:relative;display:flex;align-items:center;overflow:hidden;background:#b9e0ed url('../assets/hosu-blossom-poster.png') center 43%/cover no-repeat}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(207,235,241,.86) 0%,rgba(207,235,241,.55) 43%,rgba(207,235,241,.05) 100%)}
+.hero-content{position:relative;z-index:1;margin-left:12%;max-width:550px;color:#4e626b}
+.eyebrow,.section-label{font-size:10px;letter-spacing:.2em;font-weight:700;color:#8a9fa1}
+.hero-kicker{font-family:'Gowun Batang',serif;font-size:20px;letter-spacing:.16em;margin:0 0 8px}
+.hero h1{font-family:'Gowun Batang',serif;font-size:clamp(48px,7vw,86px);font-weight:700;letter-spacing:.12em;color:#bd6687;margin:0 0 18px;line-height:1.2}
+.hero-date{font-size:17px;letter-spacing:.08em;margin:0 0 3px}.hero-place{font-size:13px;color:#657d82;margin:0}
+.hero-actions{display:flex;gap:12px;margin-top:32px}
+.button{border:0;border-radius:3px;padding:13px 23px;font-size:13px;display:inline-flex;align-items:center;gap:20px;transition:.2s}
+.button:hover{transform:translateY(-2px);box-shadow:0 8px 20px #536a6a22}
+.button-primary{background:#cb7895;color:white}.button-glass{background:#ffffffa8;color:#536c70;border:1px solid #fff}
+.button-outline{background:transparent;border:1px solid #d8a0b1;color:#b76e89}.button-dark{background:#526c70;color:white}
+.scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:.2em;color:#668187;display:flex;align-items:center;gap:10px}
+.scroll-cue span{height:1px;width:30px;background:#668187}.hero-caption{position:absolute;right:5%;bottom:30px;font-size:9px;letter-spacing:.22em;color:#718b8e}
+.section-wrap{width:min(1120px,84%);margin:auto;padding:110px 0}
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:10%;align-items:end;margin:35px 0 60px}
+.script-word{font-family:'Gowun Batang',serif;color:#d78da5;font-style:italic;font-size:20px;margin:0 0 10px}
+h2{font-family:'Gowun Batang',serif;font-size:clamp(31px,4vw,46px);line-height:1.45;font-weight:400;letter-spacing:-.04em;margin:12px 0}
+h2 em{font-style:normal;color:#ce829c}
+.intro-copy{font-size:14px;color:#718184;line-height:2}.intro-copy p{margin:0 0 13px}
+.text-link{display:inline-block;margin-top:16px;font-size:12px;color:#b66d88;border-bottom:1px solid #d9a5b5;padding-bottom:5px}
+.info-ribbon{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:25px 0}
+.info-ribbon div{padding-left:30px;border-right:1px solid var(--line)}.info-ribbon div:first-child{padding-left:0}.info-ribbon div:last-child{border:0}
+.info-ribbon span{display:block;font-size:9px;letter-spacing:.2em;color:#a0adae}.info-ribbon strong{font-size:15px;font-weight:500}
+.program-section{background:#f7faf9;padding:95px 0 110px}
+.section-heading{display:flex;align-items:end;justify-content:space-between;gap:25px;margin:20px 0 40px}
+.program-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:13px}
+.program-card{min-height:260px;padding:22px 18px;position:relative;border-radius:3px;transition:.25s}
+.program-card:hover{transform:translateY(-6px)}
+.card-pink{background:#f8e8ed}.card-blue{background:#e5f1f4}.card-cream{background:#f8f1e6}.card-green{background:#eaf1e9}.card-lilac{background:#efebf5}
+.program-number{font-size:10px;letter-spacing:.15em;color:#9c9d9a}.program-icon{font-size:30px;margin:22px 0 8px}
+.program-card h3{font-family:'Gowun Batang',serif;font-size:19px;margin:0 0 8px}.program-card p{font-size:11px;color:#778487;min-height:57px;line-height:1.8;margin:0}.program-card>span{font-size:9px;color:#a27c88}
+.schedule-section .section-heading{margin-bottom:35px}.section-desc{font-size:13px;color:#8a999a}
+.schedule-preview{display:grid;grid-template-columns:90px 1fr 90px 1fr 90px 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 0;gap:15px;align-items:center}
+.schedule-date{text-align:center;border-right:1px solid var(--line);line-height:1.2}.schedule-date span,.schedule-date small{display:block;font-size:9px;letter-spacing:.15em;color:#a1adae}.schedule-date strong{font-family:'Gowun Batang',serif;font-size:36px;color:#cc819b}
+.schedule-detail h3{font-family:'Gowun Batang',serif;font-size:15px;margin:7px 0 2px}.schedule-detail p{font-size:10px;color:#8a999a;margin:0}.tag{font-size:8px;letter-spacing:.12em;color:#c17b94}
+.visit-section{background:#f5f9f8}.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:8%;align-items:center}.visit-grid>div:first-child>p{font-size:13px;line-height:2;color:#718184;margin:24px 0}
+.visit-meta{display:flex;gap:20px;font-size:11px;color:#9b7c87}.lake-art{height:340px;position:relative;overflow:hidden;background:linear-gradient(160deg,#d8edf0 0 43%,#b5dce0 44% 100%);border-radius:48% 48% 3px 3px}
+.lake-sun{position:absolute;width:110px;height:110px;border-radius:50%;background:#f7d9d8;top:45px;right:20%;opacity:.85}
+.lake-line{position:absolute;width:150%;height:170px;border-radius:50%;background:#91c6ca;left:-25%;bottom:-55px;border-top:13px solid #f3c7d2;transform:rotate(-8deg)}
+.lake-label{position:absolute;left:12%;top:42%;font-family:'Gowun Batang',serif;font-size:21px;letter-spacing:.12em;color:#fff;line-height:1.5}
+.petal{position:absolute;color:#fff;font-size:45px;text-shadow:0 2px 10px #d98ba355}.p1{top:18%;left:17%}.p2{top:28%;right:12%;font-size:30px}.p3{top:65%;right:24%;font-size:24px}
+.closing-cta{text-align:center;padding:100px 20px;background:#e7f3f4 url('../assets/hosu-blossom-poster.png') center 48%/cover no-repeat;background-blend-mode:screen}
+.closing-cta>p{font-size:9px;letter-spacing:.25em;color:#8a9fa1}.closing-cta h2{font-size:clamp(28px,4vw,42px);margin:20px 0 28px;color:#566d72}
+footer{padding:35px 8%;display:flex;align-items:center;justify-content:space-between;gap:20px;color:#94a1a2;font-size:10px}footer p{margin:0}footer small{font-size:8px;letter-spacing:.1em}
+.modal{border:0;border-radius:8px;padding:0;width:min(590px,calc(100% - 32px));max-height:80vh;box-shadow:0 20px 80px #263b3b33;color:var(--ink)}
+.modal::backdrop{background:#253c42a6;backdrop-filter:blur(3px)}
+.modal-head{padding:27px 30px 20px;background:#f7eff1;display:flex;justify-content:space-between;align-items:start}
+.modal-head h2{font-size:27px;margin:5px 0 0}.modal-close{border:0;background:none;font-size:28px;color:#8c777d;line-height:1}
+.modal-body{padding:20px 30px 30px}.timetable-row{display:grid;grid-template-columns:75px 1fr;gap:15px;padding:17px 0;border-bottom:1px solid var(--line);font-size:13px}.timetable-row b{color:#c27893}.modal-note{font-size:10px;color:#a0a9a9;margin:20px 0 0}.program-list>div{padding:16px 0;border-bottom:1px solid var(--line)}.program-list b,.program-list span{display:block}.program-list b{font-size:14px}.program-list span{font-size:11px;color:#8a999a;margin-top:4px}
+@media(max-width:900px){.program-grid{grid-template-columns:repeat(3,1fr)}.schedule-preview{grid-template-columns:75px 1fr;row-gap:20px}.schedule-date:nth-of-type(3),.schedule-date:nth-of-type(5){border-left:0}.visit-grid{gap:4%}}
+@media(max-width:650px){.site-header{height:64px;padding:0 6%}.menu-toggle{display:block}.main-nav{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;padding:18px 7% 25px;box-shadow:0 10px 20px #33444412;flex-direction:column;align-items:stretch;gap:16px}.main-nav.open{display:flex}.main-nav .nav-apply{text-align:center}.hero{height:690px;min-height:600px;background-position:59% center}.hero-shade{background:linear-gradient(90deg,#d8edf0e8,#d8edf0a8 60%,#d8edf044)}.hero-content{margin:0 7%;padding-top:30px}.hero h1{font-size:53px}.hero-kicker{font-size:16px}.hero-date{font-size:13px}.hero-actions{flex-wrap:wrap}.hero-caption{display:none}.section-wrap{width:86%;padding:75px 0}.intro-grid,.visit-grid{grid-template-columns:1fr;gap:20px}.intro-grid{margin:25px 0 40px}.info-ribbon{gap:10px}.info-ribbon div{padding-left:10px}.info-ribbon strong{font-size:11px}.info-ribbon span{font-size:8px}.program-section{padding:70px 0}.section-heading{align-items:start;flex-direction:column}.section-heading .button{align-self:flex-start}.program-grid{grid-template-columns:repeat(2,1fr)}.program-card{min-height:235px;padding:18px 14px}.program-card p{min-height:65px}.schedule-preview{grid-template-columns:70px 1fr}.schedule-date{grid-column:1}.schedule-detail{grid-column:2}.lake-art{height:260px;margin-top:20px}.closing-cta{padding:75px 18px}footer{padding:28px 7%;display:block}footer p{margin:12px 0}footer small{display:block}.modal-head{padding:22px}.modal-body{padding:15px 22px 25px}.timetable-row{font-size:11px;grid-template-columns:62px 1fr}}
